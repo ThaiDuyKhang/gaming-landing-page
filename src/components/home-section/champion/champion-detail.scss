@@ -1,0 +1,77 @@
+@use "../../../scss/" as *;
+
+.champion-detail {
+  position: fixed;
+  background-color: $black;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 102;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  @include flex(center, flex-end);
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    width: 50%;
+    padding: 2rem 0;
+    position: relative;
+
+    .name {
+      font-size: 5rem;
+      text-transform: uppercase;
+    }
+
+    .story {
+      width: 80%;
+      padding-left: 1rem;
+      border-left: 2px solid $main-color;
+      margin: 1rem 0;
+    }
+
+    .video {
+      margin: 1rem 0;
+    }
+
+    iframe {
+      width: 60%;
+    }
+  }
+
+  &__close {
+    width: 50px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 20%;
+      transition: transform 0.3s ease;
+      &:first-child {
+        transform: rotate(-45deg);
+      }
+      &:last-child {
+        transform: rotate(45deg);
+      }
+    }
+    &:hover img:first-child {
+      transform: rotate(45deg);
+    }
+    &:hover img:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+}

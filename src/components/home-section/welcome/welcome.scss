@@ -1,0 +1,69 @@
+@use "../../../scss/" as *;
+
+.welcome {
+  &__content {
+    @include flex(center, center);
+  }
+
+  &__info,
+  &__img {
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  &__info {
+    @include flex(flex-start, flex-end);
+    transform: translateX(-200px);
+
+    &__content {
+      padding-left: 15rem;
+
+      .description {
+        font-size: 1rem;
+      }
+      .btns {
+        .ch-play {
+          background: url(./../../../assets/images/btn-down.png) top right;
+          width: 258px;
+          height: 86px;
+          display: inline-block;
+        }
+        .app-store {
+          background: url(./../../../assets/images/btn-down.png) top center;
+          width: 258px;
+          height: 86px;
+          display: inline-block;
+        }
+        .logo-company {
+          width: 60%;
+          margin-top: 70px;
+        }
+      }
+    }
+  }
+
+  &__img {
+    @include flex(flex-end, center);
+    transform: translateX(200px);
+    &__slide {
+      height: 900px;
+      width: 790px;
+      overflow: hidden;
+
+      canvas {
+        height: 890px !important;
+        width: 755px !important;
+        display: block;
+      }
+    }
+  }
+
+  &.active &__img,
+  &.active &__info {
+    transform: translateX(0);
+    opacity: 1;
+    transition-delay: .9s;
+  }
+}

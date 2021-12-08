@@ -1,0 +1,39 @@
+@use "../../../scss/" as *;
+
+.credit {
+    height: 100%;
+    overflow: hidden;
+    @include flex(center, center);
+
+    video {
+        position: absolute;
+    }
+
+    &__content {
+        position: relative;
+        
+        .title {
+            text-align: center;
+        }
+        .btns{
+            @include flex (center, center);
+           flex-direction: column;
+            .ch-play {
+                background: url(./../../../assets/images/btn-down.png) top right;
+                width: 258px;
+                height: 86px;
+                display: inline-block;
+              }
+              .app-store {
+                background: url(./../../../assets/images/btn-down.png) top center;
+                width: 258px;
+                height: 86px;
+                display: inline-block;
+              }
+              .logo-company{
+                width: 60%;
+                margin-top: 30px;
+            }
+        }
+    }
+}
